@@ -1,12 +1,18 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
+import ClassEx from './components/ClassEx';
+import FuncEx from './components/FuncEx';
+import Nav from './Nav';
 import './App.css';
 
 function App() {
 	return (
 		<div className='App'>
-			<header className='App-header'>
-				<h1>CHIF React Tutorial</h1>
-			</header>
+			<Nav />
+			<>
+				<Route exact path='/' component={ClassEx} />
+				<Route path='/func' component={FuncEx} />
+			</>
 		</div>
 	);
 }
