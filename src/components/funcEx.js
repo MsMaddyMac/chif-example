@@ -8,6 +8,7 @@ const FuncEx = props => {
 	}, []);
 	return (
 		<div class='page'>
+			<h3>Functional Example</h3>
 			<chear src={chif}></chear>
 		</div>
 	);

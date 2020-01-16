@@ -9,6 +9,7 @@ export default class ClassEx extends React.Component {
 	render() {
 		return (
 			<div class='page'>
+				<h3>Class Example</h3>
 				<chear src={chif}></chear>
 			</div>
 		);
