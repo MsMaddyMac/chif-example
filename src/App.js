@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import ClassEx from './components/ClassEx';
 import FuncEx from './components/FuncEx';
 import Nav from './Nav';
-import './App.css';
+
 
 function App() {
 	return (
