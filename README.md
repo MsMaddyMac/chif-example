@@ -1,68 +1,106 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# CHIF-Example
 
-## Available Scripts
+## Overview
 
-In the project directory, you can run:
+This is an example of using C-Hear's file technology called **CHIF** (.chif) in a React App.
 
-### `yarn start`
+### What is a .chif?
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+CHIF stands for _C-Hear Intelligent File_. It was created by the company **C-Hear** to help make _websites and apps more digitally accessible for people with disabilities and visual impairments_.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- A .chif is made up of audio, text and metadata inside an image.
 
-### `yarn test`
+- The small file size takes away the need to host videos on a video hosting site and allows the file to live right on your site/app.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- There's no need to worry about slow loading due to the amount of images you may have on your site. An eCommerce site can use this easily and without loading issues.
 
-### `yarn build`
+### How to create a .chif?
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Go to C-Hear's **CHIF Builder**, create it, download and save it in a directory on your computer.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Follow the link below:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://chearprod.appspot.com/builder
 
-### `yarn eject`
+### How to use a .chif in a React App?
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+In the index.html file in the following section:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```html
+<head></head>
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Add the following:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```html
+<link
+	rel="stylesheet"
+	href="https://chifplayercdn.blob.core.windows.net/player2/chearPlayer_1.0.0.css"
+/>
+```
 
-## Learn More
+```html
+<script src="https://chifplayercdn.blob.core.windows.net/player2/chearPlayer_1.0.0.js"></script>
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2.  Make sure to add the .chif you created to the desired directory.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![chif directory setup](/src/images/chiffile.png?raw=true 'Chif File Setup')
 
-### Code Splitting
+3.  To use a **.chif** in a _Class Component_, first import it as you would an image and to get it to run, add the following function inside **componentDidMount()**:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+```js
+window.chifPlayer.streamFiles();
+```
 
-### Analyzing the Bundle Size
+Example of using a **.chif** in a _Class Component_:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+```js
+import React from 'react';
 
-### Making a Progressive Web App
+import chif from '../chifs/blackpug.chif';
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+export default class ClassEx extends React.Component {
+	componentDidMount() {
+		window.chifPlayer.streamFiles();
+	}
+	render() {
+		return (
+			<div class='page'>
+				<h3>Class Example</h3>
+				<chear src={chif}></chear>
+			</div>
+		);
+	}
+}
+```
 
-### Advanced Configuration
+4. To use a **.chif** in _Functional Components_, first import it as you would an image and to get it to run, add the following function inside the **useEffect** hook:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+```js
+window.chifPlayer.streamFiles();
+```
 
-### Deployment
+Example of using a **.chif** in a _Functional Component_:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```js
+import React, { useEffect } from 'react';
 
-### `yarn build` fails to minify
+import chif from '../chifs/blackpug.chif';
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+const FuncEx = props => {
+	useEffect(() => {
+		window.chifPlayer.streamFiles();
+	}, []);
+	return (
+		<div class='page'>
+			<h3>Functional Example</h3>
+			<chear src={chif}></chear>
+		</div>
+	);
+};
+
+export default FuncEx;
+```
+
+## You have now created a React App using a .chif!!!
