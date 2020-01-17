@@ -1,4 +1,4 @@
-# chif-example
+# CHIF-Example
 
 ## Overview
 
@@ -99,5 +99,5 @@ const FuncEx = props => {
 
 export default FuncEx;
 ````
-![Chif React Demo](/src/gifs/appgif.mov?raw=true "Chif React Demo")
+## You have now created a React App using a .chif!!!
 
