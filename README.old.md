@@ -24,3 +24,80 @@ Follow the link below:
 
 ### How to use a .chif in a React App?
 
+In the index.html file in the following section: 
+```html 
+<head>
+````
+
+1. Add the following:
+
+ ```html 
+ <link rel="stylesheet" href="https://chifplayercdn.blob.core.windows.net/player2/chearPlayer_1.0.0.css" />
+ ````
+
+ ```html
+ <script src="https://chifplayercdn.blob.core.windows.net/player2/chearPlayer_1.0.0.js"></script>
+ ````
+
+ 2. Make sure to add the .chif you created to the desired directory.
+
+ ![chif directory setup](/src/images/chiffile.png?raw=true "Chif File Setup")
+
+ 3. To use a **.chif** in a *Class Component*, first import it as you would an image and to get it to run, add the following function inside **componentDidMount()**:
+ 
+
+ ```js
+ window.chifPlayer.streamFiles();
+````
+ 
+Example of using a **.chif** in a *Class Component*:
+
+ ```js
+ import React from 'react';
+
+import chif from '../chifs/blackpug.chif';
+
+export default class ClassEx extends React.Component {
+	componentDidMount() {
+		window.chifPlayer.streamFiles();
+	}
+	render() {
+		return (
+			<div class='page'>
+				<h3>Class Example</h3>
+				<chear src={chif}></chear>
+			</div>
+		);
+	}
+}
+````
+
+4. To use a **.chif** in *Functional Components*, first import it as you would an image and to get it to run, add the following function inside the **useEffect** hook:
+
+ ```js
+ window.chifPlayer.streamFiles();
+````
+
+Example of using a **.chif** in a *Functional Component*:
+
+```js
+import React, { useEffect } from 'react';
+
+import chif from '../chifs/blackpug.chif';
+
+const FuncEx = props => {
+	useEffect(() => {
+		window.chifPlayer.streamFiles();
+	}, []);
+	return (
+		<div class='page'>
+			<h3>Functional Example</h3>
+			<chear src={chif}></chear>
+		</div>
+	);
+};
+
+export default FuncEx;
+````
+![Chif React Demo](/src/gifs/appgif.mov?raw=true "Chif React Demo")
+
